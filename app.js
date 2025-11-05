@@ -103,7 +103,6 @@ function check(rowNumber) {
                     blacks++;
                     tempList[i] = null;
                     checkList[i] = null;
-                    console.log(checkList);
                 }
             }
             for (let i = 0; i < checkList.length; i++) {
@@ -128,6 +127,20 @@ function check(rowNumber) {
                 alert("Gratulálok, Nyertél!");
             }
             document.querySelector(`.row${rowNumber}`).classList.add("disabled");
+            count++;
+            if (count === 11) {
+                const top = document.querySelectorAll(".row0 .peg");
+                for (let i = 0; i < rndlist.length; i++) {
+                    top[i].innerText = "";
+                    top[i].classList.add(rndlist[i]);
+                }
+                alert("Sajnos vesztettél!");
+            }
+            else {
+                controlls(count);
+                check(count);
+            }
+
         }
         else{
             alert("Mind a 4 helyre válasszon színt!");
@@ -139,6 +152,7 @@ document.querySelector(".controllsbtn").addEventListener("click", () => {
     alert("Az egér bal és jobb gombjával a nagy pöttyök színe változtatható.\nAz \"Ellenőrzés\" gombra kattintva láthatóvá válik az adott sor eredménye.")
 })
 
+let count = 1;
 let rndlist = [];
 
 for (let i = 0; i < 4; i++) {
@@ -170,6 +184,5 @@ for (let i = 0; i < 4; i++) {
 }
 
 console.log(rndlist);
-
-controlls(1);
-check(1);
+controlls(count);
+check(count);

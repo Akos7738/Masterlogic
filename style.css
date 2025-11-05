@@ -207,3 +207,7 @@ header h1 {
     transform: translateY(0%);
     background: linear-gradient(to bottom, #c9b480, #a78b5e);
 }
+
+.disabled {
+    pointer-events: none;
+}

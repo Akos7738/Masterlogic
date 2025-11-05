@@ -6,7 +6,7 @@ document.querySelector(".controllsbtn").addEventListener("click", () => {
     alert("Az egér bal és jobb gombjával a nagy pöttyök színe változtatható.\nAz \"Ellenőrzés\" gombra kattintva láthatóvá válik az adott sor eredménye.")
 })
 
-const rndlist = [];
+let rndlist = [];
 
 for (let i = 0; i < 4; i++) {
     let temp = getRndNum(1, 8);
@@ -38,9 +38,9 @@ for (let i = 0; i < 4; i++) {
 
 console.log(rndlist);
 
-const pegs = document.querySelectorAll(".peg");
+const pegs1 = document.querySelectorAll(".row1 .peg");
 
-pegs.forEach(peg => {
+pegs1.forEach(peg => {
     let temp = 0;
     peg.addEventListener("click", () => {
         if (temp === 8) {
@@ -49,7 +49,6 @@ pegs.forEach(peg => {
         else {
             temp++;
         }
-        console.log(temp);
         switch(temp) {
             case 1:
                 peg.className = "peg red";
@@ -78,7 +77,7 @@ pegs.forEach(peg => {
             default:
                 peg.className = "peg";
         }
-    })
+    });
     peg.addEventListener("contextmenu", event => {
         event.preventDefault();
         if (temp <= 1) {
@@ -87,7 +86,6 @@ pegs.forEach(peg => {
         else {
             temp--;
         }
-        console.log(temp);
                 switch(temp) {
             case 1:
                 peg.className = "peg red";
@@ -116,5 +114,39 @@ pegs.forEach(peg => {
             default:
                 peg.className = "peg";
         }
-    })
-})
+    });
+});
+
+document.querySelector(".row1 .checkbtn").addEventListener("click", () => {
+    let tempSum = 0;
+    let checkList1 = [];
+    let tempList = [...rndlist];
+    let blacks = 0;
+    let whites = 0;
+    pegs1.forEach(peg => {
+        tempSum += peg.classList.length;
+        checkList1.push(peg.classList.toString());
+    });
+    if (tempSum === 8) {
+        for (let i = 0; i < checkList1.length; i++) {
+            checkList1[i] = checkList1[i].split(" ")[1];
+        }
+        for (let i = 0; i < rndlist.length; i++) {
+            if(tempList[i] === checkList1[i]) {
+                blacks++;
+                tempList[i] = null;
+                checkList1[i] = null;
+            }
+            else if(tempList.includes(checkList1[i])) {
+                whites++;
+            }
+        }
+        const dots = document.querySelectorAll(".row1 .dot");
+        for (let i = 0; i < blacks; i++) {
+            dots[i].className = "dot black";
+        }
+        for (let i = 0; i < whites; i++) {
+            dots[i + blacks].className = "dot white";
+        }
+    }
+});

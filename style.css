@@ -138,7 +138,7 @@ header h1 {
 
 .dot {
     border-radius: 50%;
-    background: #2a0f0f;
+    background: #3b1717;
 }
 
 .feedback .dot {
@@ -146,12 +146,12 @@ header h1 {
     height: 100%;
 }
 
-.dot.white {
-    background: #f1f1f1;
+.white {
+    background: #fff;
 }
 
-.dot.black {
-    background: #111;
+.black {
+    background: #000;
 }
 
 .red {

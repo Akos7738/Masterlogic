@@ -108,6 +108,7 @@ function check(rowNumber) {
             for (let i = 0; i < checkList.length; i++) {
                 if(!(tempList[i] === checkList[i]) && tempList.includes(checkList[i])) {
                     whites++;
+                    tempList[tempList.indexOf(checkList[i])] = null;
                 }
             }
             const dots = document.querySelectorAll(`.row${rowNumber} .dot`);

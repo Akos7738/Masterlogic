@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -21,9 +23,11 @@ header {
     align-items: center;
     justify-content: center;
     container-type: inline-size;
+    text-shadow: 10px 10px 10px #000000;
 }
 
 header h1 {
+    font-family: 'Lato';
     font-size: 6cqh;
 }
 
@@ -32,6 +36,7 @@ header h1 {
     width: 25vw;
     background-color: rgb(132, 66, 67);
     border-radius: 20px;
+    box-shadow: 2px 2px 5px #000;
 }
 
 
@@ -82,10 +87,11 @@ header h1 {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    container-type: inline-size;
 }
 
 .row0 .peg {
-    font-size: 1.7cqw;
+    font-size: 7cqw;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -95,6 +101,10 @@ header h1 {
 .row0 .peg:hover {
     transform: none;
     cursor: default;
+}
+
+button {
+    box-shadow: 2px 2px 5px #000;
 }
 
 .checkbtn {
@@ -191,14 +201,15 @@ header h1 {
     background: #00acc1;
 }
 
+
 .controllsbtn button {
     height: auto;
-    width: 5cqw;
+    width: 25cqw;
     padding: 15%;
     background: linear-gradient(to bottom, #d6c39a, #b59b6c);
     color: #2a1c0e;
     font-weight: bold;
-    font-size: 0.8cqw;
+    font-size: 4cqw;
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -217,4 +228,8 @@ header h1 {
 
 .disabled {
     pointer-events: none;
+}
+
+.whiteShadow {
+    box-shadow: 0px 0px 10px #fff;
 }

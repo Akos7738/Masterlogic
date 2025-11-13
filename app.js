@@ -122,7 +122,7 @@ function check(rowNumber) {
                 const top = document.querySelectorAll(".row0 .peg");
                 for (let i = 0; i < rndlist.length; i++) {
                     top[i].innerText = "";
-                    top[i].classList.add(rndlist[i]);
+                    top[i].classList.add(rndlist[i], "whiteShadow");
                 }
                 document.querySelector(".container").classList.add("disabled");
                 alert("Gratulálok, Nyertél!");
@@ -133,7 +133,7 @@ function check(rowNumber) {
                 const top = document.querySelectorAll(".row0 .peg");
                 for (let i = 0; i < rndlist.length; i++) {
                     top[i].innerText = "";
-                    top[i].classList.add(rndlist[i]);
+                    top[i].classList.add(rndlist[i], "whiteShadow");
                 }
                 alert("Sajnos vesztettél!");
             }
@@ -150,8 +150,8 @@ function check(rowNumber) {
 }
 
 document.querySelector(".controllsbtn").addEventListener("click", () => {
-    alert("Az egér bal és jobb gombjával a nagy pöttyök színe változtatható.\nAz \"Ellenőrzés\" gombra kattintva láthatóvá válik az adott sor eredménye.")
-})
+    alert(`Az egér bal és jobb gombjával a nagy korongok színe változtatható.\nA ✔ gombra kattintva láthatóvá válik az adott sor eredménye.\nA ⚫ jó szín, jó helyen\nA ⚪ jó szín, rossz helyen\nA jelzések sorrendje nem számít.`);
+});
 
 let count = 1;
 let rndlist = [];
@@ -187,8 +187,3 @@ for (let i = 0; i < 4; i++) {
 console.log(rndlist);
 controlls(count);
 check(count);
-
-
-
-//todo
-//font, box shadow, style

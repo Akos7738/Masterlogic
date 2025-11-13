@@ -187,3 +187,8 @@ for (let i = 0; i < 4; i++) {
 console.log(rndlist);
 controlls(count);
 check(count);
+
+
+
+//todo
+//font, box shadow, style
